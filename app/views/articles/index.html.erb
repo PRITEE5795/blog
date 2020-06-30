@@ -1,0 +1,23 @@
+
+<h1> all Articles</h1>
+<%= link_to "New aticle", new_article_path%>
+
+<table>
+<tr>
+<th>Title</th>
+<th>Show</th>
+<th>Edit</th>
+<th>Delete</th>
+</tr>
+<%@articles.each do |a|%>
+<tr>
+<td><%= a.title%></td>
+<td><%= link_to "More", articles_path(a.id)%></td>
+<td><%= link_to "Edit",  edit_article_path(a.id)%></td>
+<td><%= link_to "Delete_Article",article_path(a.id),
+                         method: :delete,
+                         data: 'are you sure..?'}%>
+</td>   
+</tr>
+<%end%>
+</table>

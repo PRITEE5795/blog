@@ -1,0 +1,31 @@
+<h1>Showing the article</h1>
+<%= link_to "show all articles", articles_path %>
+Title:
+<br/>
+<%= @article.title%>
+<br/>
+Discription:
+<br/>
+<p>
+<%= @article.description%>
+</p>
+
+<h2> Add a comment </h2>
+<%= simple_form_for [@article, @article.comments.build] do |form| %>
+<%= form.input :commenter%>
+<%= form.input :body%>
+<%= form.submit%>
+<%end%>
+
+<h3> comments</h3>
+
+
+@article.comments.each do |c|%>
+commenter:
+<br/>
+<%= c.commenter%>
+<br>
+<p>
+<%= c.body%>
+</p>
+<%end%>
